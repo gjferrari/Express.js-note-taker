@@ -1,7 +1,19 @@
 const path = require("path");
 const router = require("express").Router();
 const fs = require("fs");
+const { resolve } = require("path");
 
+const notes = () => {
+  return new Promise((resolve, reject) => {
+    fs.readFile(jsonPath, "utf8", (err, data) => {
+      if (err) {
+        reject(jsonData);
+      } else {
+        resolve(JSON.parse(data));
+      }
+    });
+  });
+};
 const createNewNote = (body, notesArray) => {
   const note = body;
   notesArray.push(note);
