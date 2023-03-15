@@ -10,7 +10,7 @@ const createNewNote = (body, notesArray) => {
     JSON.stringify({ notesArray })
   );
   return note;
-}
+};
 
 router.get("api/notes/:id", (req, res) => {
   res.json(notes[req.params.id]);
@@ -26,3 +26,4 @@ router.get("/api/notes", (req, res) => {
 router.post("/api/notes", (req, res) => {
   fs.readFile("./db/db.json", "utf-8");
 });
+module.exports = router;
