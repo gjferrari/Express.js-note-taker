@@ -19,6 +19,33 @@ router.use(express.static("public"));
 // router.use("/api", apiRoutes);
 // router.use("/", htmlRoutes);
 
+router.get("api/notes/:id", (req, res) => {
+  res.json(notes[req.params.id]);
+});
+
+router.get("/api/notes", (req, res) => {
+  fs.readFile("./db/db.json", "utf8", (err, data) => {
+    if (err) throw err;
+    var notes = JSON.parse(data);
+    res.json(notes);
+  });
+});
+router.post("/api/notes", (req, res) => {
+  fs.readFile("./db/db.json", "utf-8");
+});
+
+router.get("/", (req, res) =>
+  res.sendFile(path.join(__dirname, "/public/index.html"))
+);
+
+router.get("/notes", (req, res) =>
+  res.sendFile(path.join(__dirname, "/public/notes.html"))
+);
+
+router.get("*", (req, res) => {
+  res.sendFile(path.join(_dirname, "public/index.html"));
+});
+
 router.listen(PORT, () =>
   console.log(`Example app listening at http://localhost:${PORT}`)
 );
