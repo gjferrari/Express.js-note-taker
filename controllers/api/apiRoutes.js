@@ -1,6 +1,7 @@
 const path = require("path");
 const router = require("express").Router();
 const fs = require("fs");
+// const uuid = require("uuid/v1");
 const { resolve } = require("path");
 
 const dbPath = "db/db.json";
@@ -16,7 +17,7 @@ const notes = () => {
     });
   });
 };
-const newNote = (data) => {
+const createNewNote = () => {
   return new Promise((resolve, reject) => {
     fs.writeFile(dbPath, JSON.stringify(data), "utf-8", (err) => {
       if (err) {
@@ -38,15 +39,26 @@ router.get("/notes", (req, res) => {
     );
 });
 
+
 router.post("/notes", (req, res) => {
-  newNote()
-    .then((newNote) => res.json(newNote))
-    .catch((err) =>
-      res.status(500).json({
-        error: err,
-      })
-    );
+  notes();
+  let newNote = {
+    title: req.body.title,
+    text: req.body.text,
+  };
+  createNewNote(newNote);
 });
+
+// router.post("/notes", (req, res) => {
+//   notes();
+//   createNewNote()
+//     .then((newNote) => res.json(newNote))
+//     .catch((err) =>
+//       res.status(500).json({
+//         error: err,
+//       })
+//     );
+// });
 
 // router.get("api/notes/:id", (req, res) => {
 //   res.json(notes[req.params.id]);
