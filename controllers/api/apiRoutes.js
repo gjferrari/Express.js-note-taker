@@ -1,6 +1,7 @@
 const path = require("path");
 const router = require("express").Router();
 const fs = require("fs");
+const db = require("../../db/db.json");
 // const uuid = require("uuid/v1");
 const { resolve } = require("path");
 
@@ -39,14 +40,17 @@ router.get("/notes", (req, res) => {
     );
 });
 
-
 router.post("/notes", (req, res) => {
-  notes();
+  console.log("post note");
+  console.log(req.body);
+  const savedNotes = db;
   let newNote = {
     title: req.body.title,
     text: req.body.text,
   };
-  createNewNote(newNote);
+  savedNotes.push(newNote);
+  console.log(savedNotes);
+  // createNewNote(newNote);
 });
 
 // router.post("/notes", (req, res) => {
@@ -71,7 +75,4 @@ router.post("/notes", (req, res) => {
 //     res.json(notes);
 //   });
 // });
-router.post("/notes", (req, res) => {
-  fs.readFile("./db/db.json", "utf-8");
-});
 module.exports = router;
