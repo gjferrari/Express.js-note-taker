@@ -11,8 +11,6 @@ This application can be used to write and save notes; it uses an Express.js back
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
-- [Contributing](#contributing)
-- [Tests](#tests)
 - [Questions](#questions)
 
 ## Installation
