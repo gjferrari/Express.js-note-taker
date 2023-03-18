@@ -4,6 +4,11 @@ const path = require("path");
 const fs = require("fs");
 const app = express();
 const db = require("./db/db.json");
+const uuid = () => {
+  return Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
+};
 // const apiRoutes = require("./controllers/api/apiRoutes");
 // const htmlRoutes = require("./controllers/api/htmlRoutes");
 
@@ -31,7 +36,7 @@ app.post("/api/notes", (req, res) => {
   let newNote = {
     title: req.body.title,
     text: req.body.text,
-    // id: randomUUID(),
+    id: uuid(),
   };
   savedNotes.push(newNote);
   console.log(savedNotes);
