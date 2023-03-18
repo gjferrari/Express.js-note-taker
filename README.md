@@ -4,7 +4,7 @@
 
 ## Description
 
-This application can be used to write and save notes; it uses an Express.js back end and will save and retrieve note data from a JSON file.
+This application can be used to write and save notes; it uses an Express.js back end and will save and retrieve note data from a JSON file. The api and html routes are included in the server.js file instead of the api/controller folder, however these folders and routes have been included to document the troubleshooting process and serve as scafolding for a second, more complex build.
 
 ## Table of Contents
 
@@ -24,19 +24,11 @@ This application can be used to write and save notes; it uses an Express.js back
 
 ## Usage
 
-HOMEWORK NOT FINISHED: WILL SHOW PICTURES OF FUNCTIONING APPLICATION HERE
+To explore this application's functionality, visit: https://greatestnotetaker.herokuapp.com/notes
 
 ## License
 
 This application is covered by the MIT license.
-
-## Contributing
-
-None
-
-## Tests
-
-For a video walk-through of the application, please visit: (WILL PROVIDE VIDEO ONCE HOMEWORK IS FINISHED)
 
 ## Questions
 
