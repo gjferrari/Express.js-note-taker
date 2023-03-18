@@ -18,6 +18,7 @@ app.use(express.static("public"));
 // // Route for HTML calls
 // app.use("/", htmlRoutes);
 
+//API ROUTES
 app.get("/api/notes", (req, res) => {
   const notes = db;
   res.json(notes);
@@ -30,6 +31,7 @@ app.post("/api/notes", (req, res) => {
   let newNote = {
     title: req.body.title,
     text: req.body.text,
+    // id: randomUUID(),
   };
   savedNotes.push(newNote);
   console.log(savedNotes);
@@ -47,6 +49,17 @@ app.post("/api/notes", (req, res) => {
   res.json(savedNotes);
   // createNewNote(newNote);
 });
+
+// app.delete("/api/notes/:id", (req, res) => {
+//   const savedNotes = db;
+//   let deletedNote = savedNotes.destroy({
+//     where: {
+//       id: req.params.id,
+//     },
+//   });
+// });
+
+//HTML ROUTES
 app.get("/", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/index.html"))
 );
